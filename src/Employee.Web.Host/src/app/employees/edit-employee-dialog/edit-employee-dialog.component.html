@@ -1,0 +1,67 @@
+<form (ngSubmit)="save()">
+    <abp-modal-header
+    [title]= _edit
+    (onCloseClick)= 'bsModalRef.hide()'
+></abp-modal-header>
+<div class="modal-body">
+    <div class="form-group row required">
+        <label class="col-md-3 col-form-label" for="fname">
+        First Name
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="employee.fName"
+            name="fname"
+            required
+            minlength="2"
+            maxlength="32"
+            [value]="employee.fName"
+            />
+        
+
+        <label class="col-md-3 col-form-label" for="lname">
+            Last Name
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="employee.lName"
+            name="lname"
+            required
+            minlength="2"
+            maxlength="32"
+            [value]="employee.lName"
+        />
+        <label class="col-md-3 col-form-label" for="position">
+            Position
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="employee.position"
+            name="position"
+            required
+            minlength="2"
+            maxlength="32"
+            [value]="employee.position"
+        />
+        <label class="col-md-3 col-form-label" for="drate">
+            Daily Rate
+        </label>
+        <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="employee.dRate"
+            name="dRate"
+            required
+            minlength="2"
+            maxlength="32"
+            [value]="employee.dRate"
+        />
+    </div>
+</div> 
+<abp-modal-footer
+(onCancelClick)="bsModalRef.hide()"
+></abp-modal-footer>
+</form>
