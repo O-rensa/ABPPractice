@@ -12,7 +12,7 @@ export class EditEmployeeDialogComponent extends AppComponentBase
 implements OnInit {
   _edit = "Edit Employee"
   employee = new EmployeeDto()
-  onCreate = new EventEmitter()
+  onSave = new EventEmitter()
   id: number = 0
 
   constructor(
@@ -35,7 +35,7 @@ implements OnInit {
       this._employeeService.update(employee).subscribe(()=>{
       this.notify.info("Updated Employee!!!");
       this.bsModalRef.hide();
-      this.onCreate.emit();
+      this.onSave.emit();
     }
     )
   }

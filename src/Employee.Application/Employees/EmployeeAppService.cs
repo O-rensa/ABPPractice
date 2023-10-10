@@ -46,8 +46,7 @@ namespace Employee.Employees
             return await _employeeRepository.InsertAndGetIdAsync(employee);
         }
         public async Task<int> Update(EmployeeDto input)
-        {
-            //var employee = await _employeeRepository.FirstOrDefaultAsync(input.Id.Value); 
+        { 
             // The var employee came from Database so it is EmployeeEntity Datatype
             var copy = this.ObjectMapper.Map<EmployeeEntity>(input);
             var result = await _employeeRepository.InsertOrUpdateAndGetIdAsync(copy);

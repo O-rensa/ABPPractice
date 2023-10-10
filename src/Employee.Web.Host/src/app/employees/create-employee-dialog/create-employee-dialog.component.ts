@@ -11,7 +11,7 @@ import { AppComponentBase } from '@shared/app-component-base';
 export class CreateEmployeeDialogComponent extends AppComponentBase {
   _create = "Create New Employee"
   employee = new EmployeeDto()
-  onCreate = new EventEmitter()
+  onSave = new EventEmitter()
 
   constructor(
     injector: Injector,
@@ -29,7 +29,7 @@ export class CreateEmployeeDialogComponent extends AppComponentBase {
       this._employeeService.create(employee).subscribe(()=>{
       this.notify.info("Added Employee!!!");
       this.bsModalRef.hide();
-      this.onCreate.emit();
+      this.onSave.emit();
     }
     )
 

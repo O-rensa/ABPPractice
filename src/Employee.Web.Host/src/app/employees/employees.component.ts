@@ -38,11 +38,11 @@ ngOnInit(): void {
 }  
 
 
-// Opern Edit Employee Dialog
+// Open Edit Employee Dialog
   editEmployeeDialog(employee: EmployeeDto): void {
     let editModal: BsModalRef
     let employeeId: number = employee.id
-    editModal: this._modalService.show(
+    editModal= this._modalService.show(
       EditEmployeeDialogComponent,
       {
         class:'model-lg',
@@ -51,6 +51,7 @@ ngOnInit(): void {
         }
       }
     )
+    editModal.content.onSave.subscribe(()=>{this.getAllData()})
   }
 
 
@@ -86,13 +87,13 @@ ngOnInit(): void {
   // Open Create Employee Dialog
   openCreateDialog(): void {
     let createModal: BsModalRef
-    createModal: this._modalService.show(
+    createModal= this._modalService.show(
       CreateEmployeeDialogComponent,
       {
         class:'model-lg'
       }
     )
-    createModal.content.onCreate.subscribe(()=>{this.getAllData()})
+    createModal.content.onSave.subscribe(()=>{this.getAllData()})
   }
 
 }
